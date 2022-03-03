@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">OxygenSoftwareTestApp</string>
+    <string name="accessibility_service_description">описание сервиса</string>
+    <string name="accessibility_service_label">заголовок сервиса</string>
 </resources>
