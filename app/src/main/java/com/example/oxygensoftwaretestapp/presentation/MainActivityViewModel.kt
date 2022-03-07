@@ -1,9 +1,10 @@
-package com.example.oxygensoftwaretestapp
+package com.example.oxygensoftwaretestapp.presentation
 
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.net.Uri
 import androidx.lifecycle.ViewModel
+import com.example.oxygensoftwaretestapp.presentation.MainActivity
 
 class MainActivityViewModel : ViewModel() {
 
