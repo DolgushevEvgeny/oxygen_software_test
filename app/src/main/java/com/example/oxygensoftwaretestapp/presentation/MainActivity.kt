@@ -3,12 +3,15 @@ package com.example.oxygensoftwaretestapp.presentation
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.oxygensoftwaretestapp.R
+import com.example.oxygensoftwaretestapp.di.MainActivityDICompanion
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    private val viewModel: MainActivityViewModel by lazy {
-        viewModel()
+    private val mViewModel: MainActivityViewModel by lazy {
+        viewModel(
+            getInstUserNameUseCase = MainActivityDICompanion.getInstUserNameUseCase
+        )
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -16,9 +19,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         configureUI()
-        //Открыть сервисы
-//        val intent = Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS)
-//        startActivityForResult(intent, 0)
+        subscribeToViewModel()
     }
 
     private fun configureUI() {
@@ -27,7 +28,15 @@ class MainActivity : AppCompatActivity() {
 
     private fun configureStartInstagramAppButton() {
         instNicknameBtn.setOnClickListener {
-            viewModel.getInstagramNickName(this)
+            mViewModel.getInstagramNickName(this)
+        }
+    }
+
+    private fun subscribeToViewModel() {
+        with(mViewModel) {
+            usernameLiveData.observe(this@MainActivity) {
+                nicknameTextView.text = it.value
+            }
         }
     }
 }

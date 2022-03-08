@@ -8,7 +8,7 @@ import com.example.oxygensoftwaretestapp.domain.models.SaveInstUserNameParams
 
 class InstagramAccessibilityService : AccessibilityService() {
 
-    private val saveInstUserNameUseCase by lazy {
+    private val mSaveInstUserNameUseCase by lazy {
         MainActivityDICompanion.saveInstUserNameUseCase
     }
 
@@ -30,7 +30,7 @@ class InstagramAccessibilityService : AccessibilityService() {
                 if (list.isNotEmpty()) {
                     val accountNameView = list.first()
                     val params = SaveInstUserNameParams(accountNameView.text.toString())
-                    saveInstUserNameUseCase.execute(params)
+                    mSaveInstUserNameUseCase.execute(params)
                     isAccountNameFound = true
                 }
             }
