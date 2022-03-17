@@ -2,4 +2,6 @@
     <string name="app_name">OxygenSoftwareTestApp</string>
     <string name="accessibility_service_description">Сервис используется для получения имени авторизованного пользователя Instagram</string>
     <string name="accessibility_service_label">OxygenSoftware</string>
+    <string name="getInstagramNickname">Получить никнейм Instagram</string>
+    <string name="exampleText">Hello World!</string>
 </resources>

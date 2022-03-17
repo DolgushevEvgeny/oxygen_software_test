@@ -10,8 +10,13 @@ class SaveInstUserNameUseCase(
 
     fun execute(params: SaveInstUserNameParams) {
         val cv = ContentValues()
-        cv.put("id", 1)
-        cv.put("username", params.username)
+        cv.put(ID_COLUMN_INDEX, 1)
+        cv.put(USERNAME_COLUMN_INDEX, params.username)
         usernameRepository.saveInstUsername(cv)
+    }
+
+    companion object {
+        private const val ID_COLUMN_INDEX = "id"
+        private const val USERNAME_COLUMN_INDEX = "username"
     }
 }
